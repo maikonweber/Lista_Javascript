@@ -19,6 +19,9 @@ function renderTodos() {
 
         linkElement.appendChild(linkText);
         linkElement.setAttribute("href", "#");
+
+        var pos = todos.indexOf(todo);
+        linkElement.setAttribute("onclick", "deleteTodo(" + pos + ")") 
  
 
         todoElement.appendChild(todoText);
@@ -39,7 +42,7 @@ function addTodo() {
 }
 
 
-function deleteTodo(params) {
+function deleteTodo(pos) {
     todos.splice(pos, 1);
     renderTodos();
 }

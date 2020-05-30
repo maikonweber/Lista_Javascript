@@ -3,6 +3,9 @@ var listElement = document.querySelector("#app ul");
 var inputElement = document.querySelector ("#app input");
 var buttonElement = document.querySelector ("#app button");
 
+
+
+
 var todos = ["Fazer Cafe",
     "Estudar Javascript",
     "Acessar a Comunidade"
@@ -21,7 +24,7 @@ function renderTodos() {
         linkElement.setAttribute("href", "#");
 
         var pos = todos.indexOf(todo);
-        linkElement.setAttribute("onclick", "deleteTodo(" + pos + ")") 
+        linkElement.setAttribute("onclick", "deleteTodo(" + pos + ")"); 
  
 
         todoElement.appendChild(todoText);
@@ -39,10 +42,17 @@ function addTodo() {
     todos.push(todoText);
     inputElement.value = "";
     renderTodos();
+    saveStorage();
 }
 
 
 function deleteTodo(pos) {
     todos.splice(pos, 1);
     renderTodos();
+    saveStorage();
+}
+
+function saveStorage() {
+    localStorage.setItem("list_todos", JSON.stringify(todos));
+
 }

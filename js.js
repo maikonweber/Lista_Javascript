@@ -6,7 +6,7 @@ var buttonElement = document.querySelector ("#app button");
 
 
 
-var todos = JSON.parse(localStorage.getItem("list_todos"));
+var todos = JSON.parse(localStorage.getItem("list_todos")) || [];
 function renderTodos() {
     listElement.innerHTML = "";
     for(todo of todos) {
